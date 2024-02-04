@@ -2,7 +2,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Qualification } from './qualification';
+import { Qualification } from './qualification'; // Make sure this path is correct
 
 @Injectable({
   providedIn: 'root'
@@ -28,7 +28,7 @@ export class QualificationService {
     return this.http.put<Qualification>(`${this.apiUrl}/${qualification.id}`, qualification);
   }
 
-  deleteQualification(id: number): Observable<void> {
+  deleteQualification(id: number): Observable<void> { // Make sure you're passing id when you call this method
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
 }

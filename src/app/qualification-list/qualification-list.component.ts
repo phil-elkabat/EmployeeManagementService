@@ -18,7 +18,7 @@ export class QualificationListComponent implements OnInit {
     skill: ['', Validators.required]
   });
 
-  constructor(private fb: FormBuilder, private http: HttpClient) {
+  constructor(private fb: FormBuilder, private http: HttpClient, private router: Router) {
     this.qualifications$ = of([]);
   }
 
