@@ -1,0 +1,77 @@
+<h1>Mitarbeiter bearbeiten</h1>
+
+<form [formGroup]="employeeForm" (ngSubmit)="onSubmit()" class="container mt-4">
+  <div class="mb-3">
+    <label class="form-label">Vorname:</label>
+    <div class="input-group">
+      <input type="text" formControlName="firstName" class="form-control">
+      <button type="button" class="btn btn-sm btn-danger clear-btn"
+              (click)="employeeForm.controls['firstName'].setValue('')">x
+      </button>
+    </div>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Nachname:</label>
+    <div class="input-group">
+      <input type="text" formControlName="lastName" class="form-control">
+      <button type="button" class="btn btn-sm btn-danger clear-btn"
+              (click)="employeeForm.controls['lastName'].setValue('')">x
+      </button>
+    </div>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Straße:</label>
+    <div class="input-group">
+      <input type="text" formControlName="street" class="form-control">
+      <button type="button" class="btn btn-sm btn-danger clear-btn"
+              (click)="employeeForm.controls['street'].setValue('')">x
+      </button>
+    </div>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Postleitzahl:</label>
+    <div class="input-group">
+      <input type="text" formControlName="postcode" class="form-control">
+      <button type="button" class="btn btn-sm btn-danger clear-btn"
+              (click)="employeeForm.controls['postcode'].setValue('')">x
+      </button>
+    </div>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Stadt:</label>
+    <div class="input-group">
+      <input type="text" formControlName="city" class="form-control">
+      <button type="button" class="btn btn-sm btn-danger clear-btn"
+              (click)="employeeForm.controls['city'].setValue('')">x
+      </button>
+    </div>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Telefon:</label>
+    <div class="input-group">
+      <input type="text" formControlName="phone" class="form-control">
+      <button type="button" class="btn btn-sm btn-danger clear-btn"
+              (click)="employeeForm.controls['phone'].setValue('')">x
+      </button>
+    </div>
+  </div>
+<div class="mb-3">
+  <label class="form-label">Qualifikationen:</label>
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let skill of employee?.skillSet">
+      {{ skill.id }} - {{ skill.skill }}
+      <button (click)="removeQualification(skill.id, skill.skill)">Remove Qualification</button>
+    </li>
+  </ul>
+</div>
+
+<div class="mb-3">
+  <label class="form-label">Qualifikationen hinzufügen:</label>
+  <div *ngFor="let qualification of qualifications$ | async">
+    <input type="checkbox" [value]="qualification.id" (change)="addQualification(qualification.id, $event)">
+    {{ qualification.skill }}
+  </div>
+</div>
+  <button type="submit" class="btn btn-success me-2">Änderungen speichern</button>
+  <button type="submit" class="btn btn-danger me-2" (click)="onDelete()">Mitarbeiter löschen</button>
+</form>

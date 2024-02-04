@@ -1,0 +1,37 @@
+<h1>Mitarbeiter anlegen</h1>
+
+<form [formGroup]="employeeForm" (ngSubmit)="onSubmit()" class="container mt-4">
+  <div class="mb-3">
+    <label class="form-label">First Name:</label>
+    <input type="text" formControlName="firstName" class="form-control">
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Last Name:</label>
+    <input type="text" formControlName="lastName" class="form-control">
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Street:</label>
+    <input type="text" formControlName="street" class="form-control">
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Postcode:</label>
+    <input type="text" formControlName="postcode" class="form-control">
+  </div>
+  <div class="mb-3">
+    <label class="form-label">City:</label>
+    <input type="text" formControlName="city" class="form-control">
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Phone:</label>
+    <input type="text" formControlName="phone" class="form-control">
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Skill Set:</label>
+    <select multiple formControlName="skillSet" class="form-select">
+      <option *ngFor="let qualification of qualifications$ | async" [value]="qualification.id">
+        {{qualification.skill}}
+      </option>
+    </select>
+  </div>
+  <button type="submit" class="btn btn-outline-success">Mitarbeiter hinzufügen</button>
+</form>

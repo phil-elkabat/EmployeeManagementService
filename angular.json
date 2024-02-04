@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "lf10StarterNew": {
+    "employee-management-service": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -22,12 +22,17 @@
             "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
+              "src/assets/ems-logo.png",
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/bootstrap-icons/font/bootstrap-icons.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+            ]
           },
           "configurations": {
             "production": {

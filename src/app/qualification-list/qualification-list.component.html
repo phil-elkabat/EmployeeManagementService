@@ -1,0 +1,22 @@
+<div class="container">
+  <h1 class="my-3">Qualifikationen</h1>
+
+  <form [formGroup]="qualificationForm" (ngSubmit)="onAdd()" class="mb-3">
+    <div class="input-group">
+      <input type="text" formControlName="skill" class="form-control" placeholder="Qualifikation einfügen">
+      <div class="input-group-append">
+        <button type="submit" class="btn btn-success">Qualifikation hinzufügen</button>
+      </div>
+    </div>
+  </form>
+
+  <ul class="list-group">
+    <li *ngFor="let qualification of qualifications$ | async" class="list-group-item d-flex justify-content-between align-items-center">
+      {{qualification.skill}}
+      <div>
+        <button (click)="onEdit(qualification)" class="btn btn-secondary me-2 mr-2">Bearbeiten</button>
+        <button (click)="onDelete(qualification.id)" class="btn btn-danger">Löschen</button>
+      </div>
+    </li>
+  </ul>
+</div>

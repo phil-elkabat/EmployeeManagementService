@@ -1,5 +1,5 @@
 {
-  "name": "lf10-starter-new",
+  "name": "employee-management-service",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -18,8 +18,11 @@
     "@angular/platform-browser": "^17.0.0",
     "@angular/platform-browser-dynamic": "^17.0.0",
     "@angular/router": "^17.0.0",
+    "bootstrap": "^5.3.2",
+    "bootstrap-icons": "^1.11.3",
     "keycloak-angular": "^15.0.0",
     "keycloak-js": "^22.0.5",
+    "ng-multiselect-dropdown": "^1.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.2"
