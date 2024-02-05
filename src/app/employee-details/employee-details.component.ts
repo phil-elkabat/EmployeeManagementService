@@ -2,11 +2,12 @@ import {Component, OnInit} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {ActivatedRoute, Router, RouterOutlet} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
+import {EmployeeEditComponent} from "../employee-edit/employee-edit.component";
 
 @Component({
   selector: 'app-employee-details',
   standalone: true,
-  imports: [CommonModule, RouterOutlet],
+  imports: [CommonModule, RouterOutlet, EmployeeEditComponent],
   templateUrl: './employee-details.component.html',
   styleUrl: './employee-details.component.css'
 })
@@ -38,5 +39,11 @@ export class EmployeeDetailsComponent implements OnInit {
   onEdit() {
     this.router.navigate(['/employee-edit', this.employee.id]);
   }
+
+  fetchEmployeeDetails() {
+  this.http.get<any>(`http://localhost:8089/employees/${this.id}`).subscribe(employee => {
+    this.employee = employee;
+  });
+}
 
 }

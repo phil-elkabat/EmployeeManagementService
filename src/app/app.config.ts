@@ -4,6 +4,7 @@ import {provideRouter} from '@angular/router';
 import {routes} from './app.routes';
 import {KeycloakAngularModule, KeycloakService} from "keycloak-angular";
 import {HttpClientModule} from "@angular/common/http";
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -16,7 +17,7 @@ export const appConfig: ApplicationConfig = {
       useFactory: initializeKeycloak,
       multi: true,
       deps: [KeycloakService],
-    }]
+    }, provideAnimationsAsync()]
 };
 
 export function initializeKeycloak(keycloak: KeycloakService): () => Promise<boolean> {

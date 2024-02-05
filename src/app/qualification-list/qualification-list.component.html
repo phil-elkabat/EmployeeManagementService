@@ -1,22 +1,52 @@
 <div class="container">
-  <h1 class="my-3">Qualifikationen</h1>
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="my-3 text-center">Qualifikationen</h1>
+    </div>
+  </div>
 
-  <form [formGroup]="qualificationForm" (ngSubmit)="onAdd()" class="mb-3">
-    <div class="input-group">
-      <input type="text" formControlName="skill" class="form-control" placeholder="Qualifikation einfügen">
-      <div class="input-group-append">
-        <button type="submit" class="btn btn-success">Qualifikation hinzufügen</button>
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      <form [formGroup]="qualificationForm" (ngSubmit)="onAdd()" class="mb-3">
+        <div class="input-group">
+          <input type="text" formControlName="skill" class="form-control" placeholder="Qualifikation">
+          <div class="input-group-append">
+            <button type="submit" class="btn btn-success">Hinzufügen</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      <ul class="list-group">
+        <li *ngFor="let qualification of qualifications$ | async"
+            class="list-group-item d-flex justify-content-between align-items-center"
+            (click)="fetchEmployeesWithQualification(qualification)">
+          {{ qualification.skill }}
+          <div>
+            <button (click)="onEdit(qualification)" class="btn btn-secondary me-2 mr-2">Bearbeiten</button>
+            <button (click)="onDelete(qualification.id)" class="btn btn-danger">Löschen</button>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row justify-content-center mt-5">
+    <div class="col-lg-8">
+      <h2 class="text-center">Mitarbeiter mit der ausgewählten Qualifikation:</h2>
+      <div class="row">
+        <div *ngFor="let employee of employees" class="col-md-4">
+          <div class="card mb-4">
+            <div class="card-body">
+              <h5 class="card-title">{{ employee.firstName }} {{ employee.lastName }}</h5>
+              <a [routerLink]="['/employee-details', employee.id]" class="btn btn-success">Details</a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </form>
-
-  <ul class="list-group">
-    <li *ngFor="let qualification of qualifications$ | async" class="list-group-item d-flex justify-content-between align-items-center">
-      {{qualification.skill}}
-      <div>
-        <button (click)="onEdit(qualification)" class="btn btn-secondary me-2 mr-2">Bearbeiten</button>
-        <button (click)="onDelete(qualification.id)" class="btn btn-danger">Löschen</button>
-      </div>
-    </li>
-  </ul>
+  </div>
 </div>

@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "employee-management-service": {
+    "lf10StarterNew": {
       "projectType": "application",
       "schematics": {},
       "root": "",

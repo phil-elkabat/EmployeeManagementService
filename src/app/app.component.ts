@@ -10,11 +10,12 @@ import {AppRoutingModule} from "./app.routes";
 import {HeaderComponent} from "./header/header.component";
 import {FooterComponent} from "./footer/footer.component";
 import {NgMultiSelectDropDownModule} from 'ng-multiselect-dropdown';
+import {ReactiveFormsModule} from "@angular/forms";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, EmployeeListComponent, EmployeeDetailsComponent, RouterOutlet, HttpClientModule, AddEmployeeComponent, HeaderComponent, FooterComponent],
+  imports: [CommonModule, EmployeeListComponent, EmployeeDetailsComponent, RouterOutlet, HttpClientModule, AddEmployeeComponent, HeaderComponent, FooterComponent, NgMultiSelectDropDownModule, ReactiveFormsModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
